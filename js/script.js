@@ -11,15 +11,7 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
 form.onsubmit = async (e)=>{
     const data_t = data.value.split(' ')
     e.preventDefault();
-    // dataraw = {
-    //     "name": nome.value,
-    //     "poster": "link da imagem",
-    //     "attractions": atracao.value.split(','),
-    //     "description": descricao.value,
-    //     "scheduled": data.value,
-    //     "number_tickets": parseInt(lotacao.value)
-    // }
-
+    
     dataraw = {
         "name": nome.value,
         "poster": "link da imagem",
@@ -38,11 +30,7 @@ form.onsubmit = async (e)=>{
     }
     
     const resposta = await fetch(BASE_URL, option)    
-    console.log(await resposta.json());
-    
-    
+    console.log(await resposta.json());    
     
 }
 
-
-//.split('/').reverse().join('-')
