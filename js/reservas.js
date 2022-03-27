@@ -7,11 +7,6 @@ let nomeEvento = document.getElementById("nome-evento");
 let lotacaoEvento = document.getElementById("lotacao-evento");
 let reservasEvento = document.getElementById("reservas-evento");
 
-
-let idEvento = "623bc253d2891ac70ab1cce4";
-let idReserva = "623bcf860275f4bc2ca08cd3";
-
-
 async function LotacaoMax() {
     const respostaLotacao = await fetch(`${BASE_URL_EVENTO}${idEvento}`, { method: "GET", redirect: "follow" });
     const maxJson = await respostaLotacao.json();
