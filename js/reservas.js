@@ -1,6 +1,7 @@
 let id = window.location.href.split("=")[1];
 const BASE_URL_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings/event/";
 const BASE_URL_EVENTO = "https://xp41-soundgarden-api.herokuapp.com/events/";
+console.log(id);
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -26,6 +27,7 @@ async function Reservas() {
     headers: myHeaders,
     redirect: "follow" });
     const resJson = await respostaReserva.json();
+    console.log(resJson);
     var contador = 0;
     
     resJson.forEach((item, index) => {
