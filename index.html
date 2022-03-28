@@ -44,31 +44,6 @@
             <a onclick="reservar()" href="#" class="btn btn-primary"
               >reservar ingresso</a
             >
-            <div class="modal">
-              <p>Reserve seu ingresso</p>
-              <form>
-                <label for="nome">Nome completo</label>
-                <input type="text" name="nome" id="nome" />
-                <br />
-                <label for="rg">RG/CPF</label>
-                <input type="text" name="rg" id="rg" />
-                <br />
-                <label for="endereco">Endereço</label>
-                <input type="text" name="endereco" id="endereco" />
-                <label for="evento">Evento</label>
-                <select name="evento" id="evento">
-                  <option value="artic" selected>Arctic Monkeys</option>
-                  <option value="artic" selected>Arctic Monkeys</option>
-                  <option value="artic" selected>Arctic Monkeys</option>
-                  <option value="artic" selected>Arctic Monkeys</option>
-                </select>
-                <br />
-                <label for="quantidade">Quantidade</label>
-                <input type="number" name="quantidade" id="quantidade" />
-                <button onclick="cancelar()" class="cancelar">cancelar</button>
-                <button>concluir reserva</button>
-              </form>
-            </div>
           </article>
           <article class="evento card p-5 m-3">
             <h2>nome do evento - 05/03/2022</h2>
@@ -79,7 +54,9 @@
               officiis neque natus eius harum alias quidem. Possimus nobis in
               inventore tenetur asperiores.
             </p>
-            <a href="#" class="btn btn-primary">reservar ingresso</a>
+            <a onclick="reservar()" href="#" class="btn btn-primary"
+              >reservar ingresso</a
+            >
           </article>
           <article class="evento card p-5 m-3">
             <h2>nome do evento - 05/03/2022</h2>
@@ -90,7 +67,9 @@
               officiis neque natus eius harum alias quidem. Possimus nobis in
               inventore tenetur asperiores.
             </p>
-            <a href="#" class="btn btn-primary">reservar ingresso</a>
+            <a onclick="reservar()" href="#" class="btn btn-primary"
+              >reservar ingresso</a
+            >
           </article>
         </div>
         <div class="container text-center">
@@ -158,6 +137,45 @@
         </nav>
       </div>
     </footer>
+    <div id="modal" class="modal">
+      <div id="content-modal" class="content-modal">
+        <h4>Reserve seu ingresso</h4>
+        <form class="form-modal">
+          <div class="nome-rg">
+            <div class="indv">
+              <label for="nome">Nome completo</label>
+              <input type="text" name="nome" id="nome" />
+            </div>
+            <div class="indv">
+              <label for="rg">RG/CPF</label>
+              <input type="text" name="rg" id="rg" />
+            </div>
+          </div>
+          <div class="sexo-idade-evento">
+            <div class="indv">
+              <label for="sexo">Sexo</label>
+              <select name="sexo" id="sexo">
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="nao-informar">Prefiro não informar</option>
+              </select>
+            </div>
+            <div class="indv">
+              <label for="nascimento">Data de nascimento</label>
+              <input type="date" name="nascimento" id="nascimento" />
+            </div>
+            <div class="indv">
+              <label for="quantidade">Quantidade</label>
+              <input type="number" name="quantidade" id="quantidade" />
+            </div>
+          </div>
+
+          <button onclick="concluir()" class="concluir">
+            concluir reserva
+          </button>
+        </form>
+      </div>
+    </div>
     <script src="./js/index.js"></script>
   </body>
 </html>

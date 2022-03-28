@@ -1,10 +1,10 @@
-reservar = () => {
-  let modal = document.querySelector(".modal");
+const modal = document.getElementById("modal");
 
+reservar = evento => {
+  evento.preventDefault();
   modal.style.display = "block";
 };
 
-cancelar = () => {
-  let modal = document.querySelector(".modal");
-  modal.style.display = "block";
+concluir = () => {
+  modal.style.display = "none";
 };
