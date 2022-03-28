@@ -17,8 +17,7 @@ var Listar = async () =>{
           <a href="editar-evento.html?id=${item._id}" class="btn btn-secondary">editar</a>
           <a href="excluir-evento.html?id=${item._id}" class="btn btn-danger">excluir</a>
         </td>
-      </tr>`
-        
+      </tr>`        
     });
     
 }

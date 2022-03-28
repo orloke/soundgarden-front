@@ -44,9 +44,10 @@ form.onsubmit = async (e) =>{
 
     const resposta2 =  await fetch(`${BASE_URL}/${id}`, option)
     
-    console.log(await resposta2.json());
+    if(resposta2.status == '400'){
+        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    }
+
+    alert('Dados alterados!')
+    return window.location.href = 'admin.html'
 }
-
-
-
-
