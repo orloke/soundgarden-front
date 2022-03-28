@@ -8,6 +8,17 @@ let edit_data = document.querySelector('#edit_data')
 let edit_lotacao = document.querySelector('#edit_lotacao')
 let form = document.querySelector('form')
 
+//data_t[0].split('-').slice(1,3).reverse().join('/')+'/' + data_t[0].split('-')[0].slice(2,4) +' '+ data_t[1].split(':').slice(0,2).join(':')
+
+var DataConvert = (x) =>{
+    let data = x.split('T')[0]
+    let hora = x.split('T')[1].slice(0,5)
+    let ano = data.split('-')[0].slice(2,4)
+    let mes = data.split('-')[1]
+    let dia =data.split('-')[2]
+    return dia+'/'+mes+'/'+ano+' '+hora;
+}
+
 var Recebendo = async() =>{
     const resposta = await fetch(`${BASE_URL}/${id}`, {method: 'GET'})
     const resJson = await resposta.json()
@@ -15,8 +26,9 @@ var Recebendo = async() =>{
     edit_banner.value = resJson.banner    
     edit_atracoes.value = resJson.attractions    
     edit_descricao.value = resJson.description    
-    edit_data.value = '' 
-    edit_lotacao.value = resJson.number_tickets  
+    edit_data.value = DataConvert(resJson.scheduled)
+    edit_lotacao.value = resJson.number_tickets
+
 }
 
 Recebendo()
@@ -44,9 +56,10 @@ form.onsubmit = async (e) =>{
 
     const resposta2 =  await fetch(`${BASE_URL}/${id}`, option)
     
-    console.log(await resposta2.json());
+    if(resposta2.status != '200'){
+        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    }
+
+    alert('Dados alterados!')
+    return window.location.href = 'admin.html'
 }
-
-
-
-

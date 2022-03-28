@@ -22,6 +22,11 @@ aside {
   background-color: #c2185b;
 }
 
+.btn{
+  margin-bottom: 4%;
+  margin-right: 2%;
+}
+
 .btn-primary {
   background-color: #c2185b;
   border-color: #c2185b;
@@ -50,6 +55,7 @@ footer nav ul li {
   padding: 10px;
 }
 
+<<<<<<< HEAD
 .form-modal {
 }
 
@@ -119,4 +125,132 @@ input {
   margin: 10px;
   margin-left: 0;
   justify-content: center;
+=======
+/* Modal */
+.modal {
+  width: 300px;
+  background-color: yellow;
+  display: none;
+>>>>>>> 1e8d35c0ad08d0b5638cc8192cdc358386d0c3c0
+}
+
+/* Página reservas */
+.dados-evento {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+#nome-evento {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Centralizando tabelas */
+table {
+  text-align: center;
+}
+
+/* @media screen and (max-width:700px){
+  .d-flex{
+    display: none!important;
+  }
+
+  .p-5{
+    width: auto;
+  }
+
+  .table{
+    width: 10%;
+  }
+  .btn, td{
+    font-size: 0.8rem;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: column;
+  }
+} */
+
+@media screen and (max-width:900px){
+  .p-5{
+    width: auto;
+    padding: 1%!important;
+  }
+
+  .btn, td{
+    font-size: 1rem;
+  }
+
+  .btn{
+    margin-bottom: 4%;
+  }
+
+  .container-fluid{
+    display: flex;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside {
+    min-height: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .col-2 {
+    flex: 0 0 auto;
+    width: 100%;
+    /* height: 100px; */
+  }
+  .img-responsive {
+    max-width: 30%;
+  }
+  .fs-4 {
+    font-size: calc(1.275rem + .3vw)!important;
+    text-align: center;
+  }
+
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #c2185b;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .my-5 {
+    text-align: center;
+  }
+
+  element.style {
+    overflow-y: auto;
+  }
+
+}
+
+
+
+/* Banner landing page */
+#section-banner {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: right;
+}
+
+#container-banner {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  text-align: center;
+  padding: 30px;
+}
+
+#nome-evento-banner {
+  color: #c2185b;
+  text-align: center;
+  padding: 20px;
 }

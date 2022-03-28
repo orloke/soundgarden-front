@@ -28,6 +28,14 @@ form.onsubmit = async (e)=>{
     }
     
     const resposta = await fetch(BASE_URL, option)    
-    console.log(await resposta.json());    
+
+    
+    if(resposta.status != '201'){
+        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    }
+
+    console.log(await resposta.json());
+    alert('Evento cadastrado!')
+    return window.location.href = 'admin.html'
     
 }
