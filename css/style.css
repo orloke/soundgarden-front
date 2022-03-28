@@ -61,7 +61,7 @@ footer nav ul li {
 .dados-evento {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
 }
 
