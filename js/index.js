@@ -4,13 +4,14 @@ const concluirReserva = document.querySelector(".concluir");
 let card = document.querySelector(".pagina_inicial");
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
 
+
 abrirModal.forEach(btn => {
-  btn.addEventListener("mousedown", e => {
+  btn.addEventListener("click", e => {
     modal.style.display = "block";
   });
 });
 
-concluirReserva.addEventListener("mousedown", e => {
+concluirReserva.addEventListener("click", e => {
   modal.style.display = "none";
 });
 
