@@ -164,6 +164,10 @@ table {
   white-space: nowrap;
 }
 
+.button_ver_todos{
+  margin-top: 2%;
+}
+
 @media screen and (max-width: 900px) {
 
   /* responsividade da pagina de eventos  */
