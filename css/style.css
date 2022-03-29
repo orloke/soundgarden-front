@@ -47,14 +47,10 @@ main.login {
   justify-content: space-between !important;
 }
 
-<<<<<<< HEAD
-.card {
-=======
-/* .card{
->>>>>>> 927456fca34024955e9eb82c4c709ec0d102222d
+.card{
   min-width: 30%;
   white-space: nowrap;
-} */
+}
 
 section.full {
   width: 100%;
