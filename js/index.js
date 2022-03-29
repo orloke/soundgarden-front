@@ -29,7 +29,7 @@ var Listar = async () => {
       <h2 id="evento1">${item.name} - ${item.scheduled}</h2>
       <h4>${item.attractions}</h4>
       <p class="p_card_index">${item.description}</p>
-      <button onclick="reservar()" class="btn btn-primary botao-reservar">
+      <button class="btn btn-primary botao-reservar">
         reservar ingresso
       </button>
     </article>`;
