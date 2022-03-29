@@ -141,16 +141,16 @@ input {
 table {
   text-align: center;
 }
-/* responsividade da pagina de eventos  */
+
 @media screen and (max-width: 900px) {
 
+  /* responsividade da pagina de eventos  */
   .p-5 {
     width: auto;
     padding: 1% !important;
   }
 
-  .btn,
-  td {
+  .btn, td {
     font-size: 1rem;
   }
 
@@ -199,6 +199,32 @@ table {
 
   element.style {
     overflow-y: auto;
+  }
+
+  /* responsividade da pagina inicial */
+
+  .img_down_index{
+    width: 100%;
+  }
+
+  footer nav ul{
+    display: block;
+  }
+
+  article.evento {
+    width: 100%;
+  }
+
+  .pagina_inicial{
+    flex-direction: column;
+  }
+
+  .descricao_index{
+    text-align: center;
+  }
+
+  #section-banner {
+    margin-right: 2% ;
   }
 }
 

@@ -35,7 +35,7 @@
         <div class="container text-center">
           <h2>Próximos eventos</h2>
         </div>
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="pagina_inicial container d-flex justify-content-center align-items-center">
           <article class="evento card p-5 m-3">
             <h2 id="evento1">nome do evento 1 - 05/03/2022</h2>
             <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
@@ -45,7 +45,7 @@
               officiis neque natus eius harum alias quidem. Possimus nobis in
               inventore tenetur asperiores.
             </p>
-            <button class="btn btn-primary botao-reservar">
+            <button onclick="reservar()" class="btn btn-primary botao-reservar">
               reservar ingresso
             </button>
           </article>
@@ -58,7 +58,7 @@
               officiis neque natus eius harum alias quidem. Possimus nobis in
               inventore tenetur asperiores.
             </p>
-            <button class="btn btn-primary botao-reservar">
+            <button onclick="reservar()" class="btn btn-primary botao-reservar">
               reservar ingresso
             </button>
           </article>
@@ -71,7 +71,7 @@
               officiis neque natus eius harum alias quidem. Possimus nobis in
               inventore tenetur asperiores.
             </p>
-            <button class="btn btn-primary botao-reservar">
+            <button onclick="reservar()" class="btn btn-primary botao-reservar">
               reservar ingresso
             </button>
           </article>
@@ -79,7 +79,7 @@
         <div class="container text-center"></div>
       </section>
       <section
-        class="full d-flex justify-content-center align-items-center"
+        class="descricao_index full d-flex justify-content-center align-items-center"
         style="background-color: #f2f2f2; color: #555"
       >
         <div class="container">
@@ -114,7 +114,7 @@
               </p>
             </div>
             <div class="col">
-              <img src="img/music.svg" width="500px" />
+              <img class="img_down_index" src="img/music.svg" width="500px" />
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
         </nav>
       </div>
     </footer>
-    <div style="display: block;" id="modal" class="modal">
+    <div id="modal" class="modal">
       <div id="content-modal" class="content-modal">
         <h4>Reserve seu ingresso</h4>
         <form class="form-modal">
