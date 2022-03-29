@@ -231,7 +231,7 @@ table {
     text-align: center;
   }
 /* responsividade pagina de cadastro */
-  .form_cadastro_evento{
+  .form_cadastro_evento, .form_editar{
     width: 100%;
     text-align: center;
     font-size: 1.3rem;
@@ -249,14 +249,14 @@ table {
   }
   /* responsividade pagina de cadastro */
 
-  .form_cadastro_evento{
+  .form_cadastro_evento, .form_editar{
     font-size: 1.7rem;
   }
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-size: 1.4rem;
   }
 
-  .form_cadastro_evento input{
+  .form_cadastro_evento input, .form_editar input{
     font-size: 1.4rem;
   }
 
