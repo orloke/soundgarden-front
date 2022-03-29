@@ -142,6 +142,10 @@ table {
   text-align: center;
 }
 
+.article_evento p, h2, h4{
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
 
   /* responsividade da pagina de eventos  */
@@ -176,7 +180,6 @@ table {
   .col-2 {
     flex: 0 0 auto;
     width: 100%;
-    /* height: 100px; */
   }
   .img-responsive {
     max-width: 30%;
@@ -213,6 +216,7 @@ table {
 
   article.evento {
     width: 100%;
+    text-align: center;
   }
 
   .pagina_inicial{
@@ -247,7 +251,8 @@ table {
   p, li{
     font-size: 1.4rem;
   }
-  /* responsividade pagina de cadastro */
+
+  /* responsividade pagina de cadastro e editar*/
 
   .form_cadastro_evento, .form_editar{
     font-size: 1.7rem;
