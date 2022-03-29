@@ -141,9 +141,9 @@ input {
 table {
   text-align: center;
 }
-
+/* responsividade da pagina de eventos  */
 @media screen and (max-width: 900px) {
-  /* responsividade da pagina de eventos  */
+
   .p-5 {
     width: auto;
     padding: 1% !important;
