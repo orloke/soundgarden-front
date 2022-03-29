@@ -1,9 +1,13 @@
+const abrirModal = document.querySelectorAll(".botao-reservar");
 const modal = document.getElementById("modal");
-console.log(modal);
-var reservar = () => {
-  modal.style.display = "block";
-};
+const concluirReserva = document.querySelector(".concluir");
 
-var concluir = () => {
+abrirModal.forEach(btn => {
+  btn.addEventListener("mousedown", e => {
+    modal.style.display = "block";
+  });
+});
+
+concluirReserva.addEventListener("mousedown", e => {
   modal.style.display = "none";
-};
+});
