@@ -226,6 +226,17 @@ table {
   #section-banner {
     margin-right: 2% ;
   }
+
+  .cards_index{
+    text-align: center;
+  }
+}
+
+@media screen and (min-height: 900px) {
+  p, li{
+    font-size: 1.4rem;
+  }
+
 }
 
 /* Banner landing page */
