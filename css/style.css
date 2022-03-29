@@ -47,10 +47,10 @@ main.login {
   justify-content: space-between!important;
 }
 
-.card{
+/* .card{
   min-width: 30%;
   white-space: nowrap;
-}
+} */
 
 section.full {
   width: 100%;
