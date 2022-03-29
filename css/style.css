@@ -13,6 +13,7 @@ header {
   width: 100%;
   background-color: #fff;
 }
+
 aside {
   min-height: 100vh;
 }
@@ -22,7 +23,7 @@ aside {
   background-color: #c2185b;
 }
 
-.btn{
+.btn {
   margin-bottom: 4%;
   margin-right: 2%;
 }
@@ -141,27 +142,27 @@ table {
   text-align: center;
 }
 
-
-@media screen and (max-width:900px){
-/* responsividade da pagina de eventos  */
-  .p-5{
+@media screen and (max-width: 900px) {
+  /* responsividade da pagina de eventos  */
+  .p-5 {
     width: auto;
-    padding: 1%!important;
+    padding: 1% !important;
   }
 
-  .btn, td{
+  .btn,
+  td {
     font-size: 1rem;
   }
 
-  .btn{
+  .btn {
     margin-bottom: 4%;
   }
 
-  .container-fluid{
+  .container-fluid {
     display: flex;
   }
 
-  .row{
+  .row {
     display: flex;
     flex-direction: column;
   }
@@ -181,11 +182,12 @@ table {
     max-width: 30%;
   }
   .fs-4 {
-    font-size: calc(1.275rem + .3vw)!important;
+    font-size: calc(1.275rem + 0.3vw) !important;
     text-align: center;
   }
 
-  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
     background-color: #c2185b;
     width: 50%;
     margin: 0 auto;
@@ -198,7 +200,6 @@ table {
   element.style {
     overflow-y: auto;
   }
-
 }
 
 /* Banner landing page */
@@ -210,8 +211,8 @@ table {
 }
 
 #container-banner {
-  background-color: #fff;
-  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
   text-align: center;
   padding: 30px;
 }
