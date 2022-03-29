@@ -6,7 +6,7 @@ var Listar = async () =>{
     resJson.forEach((item,index) => {
         table.innerHTML+=
         `<tr >
-        <th scope="row">${index+4}</th>
+        <th scope="row">${index+1}</th>
         <td>${item.scheduled}</td>
         <td>${item.name}</td>
         <td>${item.attractions}</td>
