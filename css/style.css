@@ -120,6 +120,7 @@ input {
   cursor: pointer;
   padding: 5px 20px;
   margin: 10px;
+  margin-right: 0;
   margin-left: 0;
   justify-content: center;
 }
@@ -241,9 +242,16 @@ table {
     font-size: 1.3rem;
   }
 
-  #nome{
+  #nome, #sexo, #rg, #nascimento, #quantidade{
     width: 100%;
   }
+
+/* responsividade modal */
+  .form-modal div{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 @media screen and (min-height: 900px) {
