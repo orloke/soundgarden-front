@@ -169,19 +169,16 @@
     </footer>
     <div id="modal" class="modal">
       <div id="content-modal" class="content-modal">
+        <div class="xis">
+          <button class="fechar">&times</button>
+        </div>
         <h4>Reserve seu ingresso</h4>
         <form class="form-modal">
-          <div class="nome-rg">
+          <div class="nome-sexo">
             <div class="indv">
               <label for="nome">Nome completo</label>
               <input type="text" name="nome" id="nome" />
             </div>
-            <div class="indv">
-              <label for="rg">RG/CPF</label>
-              <input type="text" name="rg" id="rg" />
-            </div>
-          </div>
-          <div class="sexo-idade-evento">
             <div class="indv">
               <label for="sexo">Sexo</label>
               <select name="sexo" id="sexo">
@@ -190,19 +187,22 @@
                 <option value="nao-informar">Prefiro não informar</option>
               </select>
             </div>
+          </div>
+          <div class="email-rg-evento">
             <div class="indv">
-              <label for="nascimento">Data de nascimento</label>
-              <input type="date" name="nascimento" id="nascimento" />
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="indv">
+              <label for="rg">RG/CPF</label>
+              <input type="text" name="rg" id="rg" />
             </div>
             <div class="indv">
               <label for="quantidade">Quantidade</label>
               <input type="number" name="quantidade" id="quantidade" />
             </div>
           </div>
-
-          <div>
-            <button class="concluir">concluir reserva</button>
-          </div>
+          <button class="concluir">concluir reserva</button>
         </form>
       </div>
     </div>

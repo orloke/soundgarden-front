@@ -1,6 +1,7 @@
 const abrirModal = document.querySelectorAll(".botao-reservar");
 const modal = document.getElementById("modal");
 const concluirReserva = document.querySelector(".concluir");
+const cancelarReserva = document.querySelector(".fechar");
 let card = document.querySelector(".pagina_inicial");
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
 
@@ -11,6 +12,10 @@ abrirModal.forEach(btn => {
 });
 
 concluirReserva.addEventListener("mousedown", e => {
+  modal.style.display = "none";
+});
+
+cancelarReserva.addEventListener("mousedown", e => {
   modal.style.display = "none";
 });
 

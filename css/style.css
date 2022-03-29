@@ -39,15 +39,15 @@ main.login {
 
 /*Pagina index*/
 
-.pagina_inicial{
+.pagina_inicial {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
   flex-wrap: nowrap;
-  justify-content: space-between!important;
+  justify-content: space-between !important;
 }
 
-.card{
+.card {
   min-width: 30%;
   white-space: nowrap;
 }
@@ -57,7 +57,7 @@ section.full {
   padding: 50px 0;
 }
 
-#section-banner{
+#section-banner {
   min-height: 60vh;
 }
 
@@ -69,6 +69,8 @@ footer nav ul {
 footer nav ul li {
   padding: 10px;
 }
+
+/* modal */
 
 .modal {
   display: none;
@@ -94,8 +96,8 @@ h4 {
   text-align: center;
 }
 
-.nome-rg,
-.sexo-idade-evento {
+.nome-sexo,
+.email-rg-evento {
   display: flex;
   gap: 20px;
 }
@@ -105,19 +107,17 @@ input {
   height: 30px;
 }
 
-#nome,
-#nascimento {
+#nome {
   width: 300px;
 }
 
 #rg,
-#sexo,
-#nascimento {
+#sexo {
   width: 150px;
 }
 
 #quantidade {
-  width: 130px;
+  width: 95px;
 }
 
 .indv {
@@ -125,6 +125,9 @@ input {
   flex-direction: column;
 }
 
+.dv-concluir {
+  text-align: center;
+}
 .concluir {
   justify-content: center;
   background-color: #c2185b;
@@ -134,9 +137,18 @@ input {
   cursor: pointer;
   padding: 5px 20px;
   margin: 10px;
-  margin-right: 0;
   margin-left: 0;
-  justify-content: center;
+}
+
+.xis {
+  text-align: right;
+}
+
+.fechar {
+  border: #fff;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Página reservas */
@@ -157,7 +169,9 @@ table {
   text-align: center;
 }
 
-.cards_index p, h2, h4{
+.cards_index p,
+h2,
+h4 {
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -165,7 +179,6 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-
   /* responsividade da pagina de eventos  */
   .p-5 {
     width: auto;
@@ -225,11 +238,11 @@ table {
 
   /* responsividade da pagina inicial */
 
-  .img_down_index{
+  .img_down_index {
     width: 100%;
   }
 
-  footer nav ul{
+  footer nav ul {
     display: block;
   }
 
@@ -238,55 +251,62 @@ table {
     text-align: center;
   }
 
-  .descricao_index{
+  .descricao_index {
     text-align: center;
   }
 
   #section-banner {
-    margin-right: 2% ;
+    margin-right: 2%;
   }
 
-  .cards_index{
+  .cards_index {
     text-align: center;
   }
-/* responsividade pagina de cadastro */
-  .form_cadastro_evento, .form_editar{
+  /* responsividade pagina de cadastro */
+  .form_cadastro_evento,
+  .form_editar {
     width: 100%;
     text-align: center;
     font-size: 1.3rem;
   }
 
-  #nome, #sexo, #rg, #nascimento, #quantidade{
+  #nome,
+  #sexo,
+  #rg,
+  #nascimento,
+  #quantidade {
     width: 100%;
   }
 
-/* responsividade modal */
-  .form-modal div{
+  /* responsividade modal */
+  .form-modal div {
     display: flex;
     flex-direction: column;
   }
-
 }
 
 @media screen and (min-height: 900px) {
-/* responsividade da pagina inicial */
-  p, li{
+  /* responsividade da pagina inicial */
+  p,
+  li {
     font-size: 1.4rem;
   }
 
   /* responsividade pagina de cadastro e editar*/
 
-  .form_cadastro_evento, .form_editar{
+  .form_cadastro_evento,
+  .form_editar {
     font-size: 1.7rem;
   }
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
     font-size: 1.4rem;
   }
 
-  .form_cadastro_evento input, .form_editar input{
+  .form_cadastro_evento input,
+  .form_editar input {
     font-size: 1.4rem;
   }
-
 }
 
 /* Banner landing page */
