@@ -80,29 +80,9 @@ table {
   text-align: center;
 }
 
-/* @media screen and (max-width:700px){
-  .d-flex{
-    display: none!important;
-  }
-
-  .p-5{
-    width: auto;
-  }
-
-  .table{
-    width: 10%;
-  }
-  .btn, td{
-    font-size: 0.8rem;
-  }
-
-  .row{
-    display: flex;
-    flex-direction: column;
-  }
-} */
 
 @media screen and (max-width:900px){
+/* responsividade da pagina de eventos  */
   .p-5{
     width: auto;
     padding: 1%!important;
@@ -159,8 +139,6 @@ table {
   }
 
 }
-
-
 
 /* Banner landing page */
 #section-banner {
