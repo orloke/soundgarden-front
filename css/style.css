@@ -44,7 +44,8 @@ section.full {
 }
 
 article.evento {
-  width: 350px;
+  width: 100%;
+  overflow-y: auto;
 }
 
 footer nav ul {
@@ -120,6 +121,7 @@ input {
   cursor: pointer;
   padding: 5px 20px;
   margin: 10px;
+  margin-right: 0;
   margin-left: 0;
   justify-content: center;
 }
@@ -142,15 +144,19 @@ table {
   text-align: center;
 }
 
+.article_evento p, h2, h4{
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
+
   /* responsividade da pagina de eventos  */
   .p-5 {
     width: auto;
     padding: 1% !important;
   }
 
-  .btn,
-  td {
+  .btn, td {
     font-size: 1rem;
   }
 
@@ -176,7 +182,6 @@ table {
   .col-2 {
     flex: 0 0 auto;
     width: 100%;
-    /* height: 100px; */
   }
   .img-responsive {
     max-width: 30%;
@@ -200,6 +205,75 @@ table {
   element.style {
     overflow-y: auto;
   }
+
+  /* responsividade da pagina inicial */
+
+  .img_down_index{
+    width: 100%;
+  }
+
+  footer nav ul{
+    display: block;
+  }
+
+  article.evento {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pagina_inicial{
+    flex-direction: column;
+  }
+
+  .descricao_index{
+    text-align: center;
+  }
+
+  #section-banner {
+    margin-right: 2% ;
+  }
+
+  .cards_index{
+    text-align: center;
+  }
+/* responsividade pagina de cadastro */
+  .form_cadastro_evento, .form_editar{
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  #nome, #sexo, #rg, #nascimento, #quantidade{
+    width: 100%;
+  }
+
+/* responsividade modal */
+  .form-modal div{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (min-height: 900px) {
+/* responsividade da pagina inicial */
+  p, li{
+    font-size: 1.4rem;
+  }
+
+  /* responsividade pagina de cadastro e editar*/
+
+  .form_cadastro_evento, .form_editar{
+    font-size: 1.7rem;
+  }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 1.4rem;
+  }
+
+  .form_cadastro_evento input, .form_editar input{
+    font-size: 1.4rem;
+  }
+
 }
 
 /* Banner landing page */

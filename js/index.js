@@ -1,7 +1,6 @@
-const modal = document.getElementById(".modal");
-
-var reservar = (evento) => {
-  evento.preventDefault();
+const modal = document.getElementById("modal");
+console.log(modal);
+var reservar = () => {
   modal.style.display = "block";
 };
 
