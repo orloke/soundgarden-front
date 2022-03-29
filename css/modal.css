@@ -1,0 +1,80 @@
+/* modal */
+
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content-modal {
+  margin: 0 auto;
+  margin-top: 5%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #eee;
+  box-shadow: 0 0 2px #fff;
+  border-radius: 5px;
+}
+
+h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.nome-sexo,
+.email-rg-evento {
+  display: flex;
+  gap: 20px;
+}
+
+select,
+input {
+  height: 30px;
+}
+
+#nome {
+  width: 300px;
+}
+
+#rg,
+#sexo {
+  width: 150px;
+}
+
+#quantidade {
+  width: 95px;
+}
+
+.indv {
+  display: flex;
+  flex-direction: column;
+}
+
+.dv-concluir {
+  text-align: center;
+}
+.concluir {
+  justify-content: center;
+  background-color: #c2185b;
+  color: #fff;
+  border-radius: 5px;
+  border: #c2185b;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.xis {
+  text-align: right;
+}
+
+.fechar {
+  border: #fff;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+}
