@@ -55,10 +55,6 @@ footer nav ul li {
   padding: 10px;
 }
 
-<<<<<<< HEAD
-.form-modal {
-}
-
 .modal {
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -125,13 +121,6 @@ input {
   margin: 10px;
   margin-left: 0;
   justify-content: center;
-=======
-/* Modal */
-.modal {
-  width: 300px;
-  background-color: yellow;
-  display: none;
->>>>>>> 1e8d35c0ad08d0b5638cc8192cdc358386d0c3c0
 }
 
 /* Página reservas */
