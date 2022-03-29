@@ -13,6 +13,7 @@ header {
   width: 100%;
   background-color: #fff;
 }
+
 aside {
   min-height: 100vh;
 }
@@ -53,10 +54,6 @@ footer nav ul {
 
 footer nav ul li {
   padding: 10px;
-}
-
-<<<<<<< HEAD
-.form-modal {
 }
 
 .modal {
@@ -125,13 +122,13 @@ input {
   margin: 10px;
   margin-left: 0;
   justify-content: center;
-=======
+}
+
 /* Modal */
 .modal {
   width: 300px;
   background-color: yellow;
   display: none;
->>>>>>> 1e8d35c0ad08d0b5638cc8192cdc358386d0c3c0
 }
 
 /* Página reservas */
