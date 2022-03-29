@@ -37,15 +37,28 @@ main.login {
   width: 400px;
 }
 
+/*Pagina index*/
+
+.pagina_inicial{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  justify-content: space-between!important;
+}
+
+.card{
+  min-width: 30%;
+  white-space: nowrap;
+}
+
 section.full {
   width: 100%;
-  min-height: 80vh;
   padding: 50px 0;
 }
 
-article.evento {
-  width: 100%;
-  overflow-y: auto;
+#section-banner{
+  min-height: 60vh;
 }
 
 footer nav ul {
@@ -144,8 +157,11 @@ table {
   text-align: center;
 }
 
-.article_evento p, h2, h4{
+.cards_index p, h2, h4{
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 900px) {
@@ -156,12 +172,13 @@ table {
     padding: 1% !important;
   }
 
-  .btn, td {
+  .td {
     font-size: 1rem;
   }
 
   .btn {
     margin-bottom: 4%;
+    font-size: 0.6rem;
   }
 
   .container-fluid {
@@ -219,10 +236,6 @@ table {
   article.evento {
     width: 100%;
     text-align: center;
-  }
-
-  .pagina_inicial{
-    flex-direction: column;
   }
 
   .descricao_index{
