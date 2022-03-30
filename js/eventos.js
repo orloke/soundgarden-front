@@ -6,6 +6,7 @@ let nomeEvento = document.getElementById("nome-evento");
 let dataEvento = document.getElementById("data-evento");
 let idEvento = "";
 let atracoesEvento = document.getElementById("atracoes-evento");
+let ingressos = document.getElementById("ingressos");
 
 let card = document.querySelector(".pagina_inicial");
 
@@ -20,12 +21,13 @@ const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
 const BASE_FAZER_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings";
 
 
-var reservar = (id, nome, data, atracoes) =>{
-    modal.style.display = "block";
-    nomeEvento.innerHTML = nome;
-    dataEvento.innerHTML = data;
-    atracoesEvento.innerHTML = atracoes;
-    idEvento = id;
+var reservar = async (id, nome, data, atracoes, disponivel) =>{
+  modal.style.display = "block";
+  nomeEvento.innerHTML = nome;
+  dataEvento.innerHTML = data;
+  atracoesEvento.innerHTML = atracoes;
+  ingressos.innerHTML = 'Disponivel: '+disponivel
+  idEvento = id;
 }
 
 concluirReserva.addEventListener("click", e => {
@@ -48,9 +50,16 @@ var Listar = async () => {
       <h2 id="evento${index+1}">${item.name} - ${item.scheduled}</h2>
       <h4>${item.attractions}</h4>
       <p class="p_card_index">${item.description}</p>
-      <button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}')" class="btn btn-primary botao-reservar">
+      ${item.number_tickets!=0?
+        `<button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}','${item.number_tickets}')" class="btn btn-primary botao-reservar">
         reservar ingresso
-      </button>
+        </button>`
+      :
+        `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
+        Ingressos Esgotados
+        </button>`
+      }
+
     </article>`;
     });
 }
@@ -59,7 +68,10 @@ Listar();
 
 form.onsubmit = async (e)=>{
   e.preventDefault();
-  
+  let para_comprar = Number(ingressos.innerHTML.split(': ')[1]);
+  if(Number(qtde.value)>para_comprar){
+    return alert('Quantidade de ingressos maior que o disponível!')
+  }  
   let dataraw = {
     "owner_name": nome.value,
     "owner_email": email.value,
@@ -85,7 +97,7 @@ form.onsubmit = async (e)=>{
   }
 
   alert('Reserva feita com sucesso!')
-  // return window.location.href = 'admin.html'
+  return window.location.href = 'eventos.html'
   
 }
 
