@@ -20,15 +20,9 @@ let qtde = document.querySelector('#quantidade');
 let btn_te = document.querySelector('.btn_todos_eventos');
 
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
-const BASE_URL_EVENTO = "https://xp41-soundgarden-api.herokuapp.com/events/"
 const BASE_FAZER_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings";
 
-
-var reservar = async (id, nome, data, atracoes) =>{
-
-  const respostaLotacao = await fetch(`${BASE_URL_EVENTO}${id}`, { method: "GET", redirect: "follow" });
-  const maxJson = await respostaLotacao.json();
-  console.log(maxJson);
+var reservar = (id, nome, data, atracoes) =>{
   modal.style.display = "block";
   nomeEvento.innerHTML = 'Evento: '+nome;
   dataEvento.innerHTML = 'Data: '+data;
@@ -140,7 +134,7 @@ form.onsubmit = async (e)=>{
       return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
   }
 
-  alert('Evento cadastrado!')
+  alert('Reserva Cadastrada com sucesso!')
   // return window.location.href = 'admin.html'
   
 }

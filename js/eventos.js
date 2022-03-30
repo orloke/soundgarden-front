@@ -84,7 +84,7 @@ form.onsubmit = async (e)=>{
       return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
   }
 
-  alert('Evento cadastrado!')
+  alert('Reserva feita com sucesso!')
   // return window.location.href = 'admin.html'
   
 }
