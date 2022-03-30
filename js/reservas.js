@@ -39,9 +39,20 @@ async function Reservas() {
             <td>${item.owner_name}</td>
             <td>${item.owner_email}</td>
             <td>${item.number_tickets}</td>
+            <td>
+                <a onclick="excluir('${item._id}')" class="btn btn-danger">excluir</a>
+            </td>
             </tr>`;
 
     });
     reservasEvento.innerHTML = contador;
+
 }
 Reservas()
+
+const excluir = async (a)=>{
+    let url_excluir = `https://xp41-soundgarden-api.herokuapp.com/bookings/${a}`
+    confirm('Deseja realmente excluir? Essa operação não pode ser desfeita!')
+    const resposta = await fetch(url_excluir, {method:'DELETE'});
+    return window.location.href='reservas.html'
+}
