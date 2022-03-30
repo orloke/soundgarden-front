@@ -41,6 +41,9 @@ var Listar = async () => {
   const resposta = await fetch(BASE_URL, { method: "GET" });
   const resJson = await resposta.json();
   resJson.forEach((item,index) => {
+    if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
+      item.attractions ='sem atração'
+    }
     card.innerHTML += `<article class="cards_index evento card p-5 m-3">
       <h2 id="evento${index+1}">${item.name} - ${item.scheduled}</h2>
       <h4>${item.attractions}</h4>

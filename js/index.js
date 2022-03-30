@@ -17,17 +17,23 @@ let sexo = document.querySelector('#sexo');
 let email = document.querySelector('#email');
 let rg = document.querySelector('#rg');
 let qtde = document.querySelector('#quantidade');
+let btn_te = document.querySelector('.btn_todos_eventos');
 
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
+const BASE_URL_EVENTO = "https://xp41-soundgarden-api.herokuapp.com/events/"
 const BASE_FAZER_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings";
 
 
-var reservar = (id, nome, data, atracoes) =>{
-    modal.style.display = "block";
-    nomeEvento.innerHTML = nome;
-    dataEvento.innerHTML = data;
-    atracoesEvento.innerHTML = atracoes;
-    idEvento = id;
+var reservar = async (id, nome, data, atracoes) =>{
+
+  const respostaLotacao = await fetch(`${BASE_URL_EVENTO}${id}`, { method: "GET", redirect: "follow" });
+  const maxJson = await respostaLotacao.json();
+  console.log(maxJson);
+  modal.style.display = "block";
+  nomeEvento.innerHTML = 'Evento: '+nome;
+  dataEvento.innerHTML = 'Data: '+data;
+  atracoesEvento.innerHTML = 'Atrações: '+atracoes;
+  idEvento = id;
 }
 
 concluirReserva.addEventListener("click", e => {
@@ -38,17 +44,30 @@ cancelarReserva.addEventListener("mousedown", e => {
   modal.style.display = "none";
 });
 
+var DataConvert = (x) =>{
+  let data = x.split('T')[0]
+  let hora = x.split('T')[1].slice(0,5)
+  let ano = data.split('-')[0].slice(2,4)
+  let mes = data.split('-')[1]
+  let dia =data.split('-')[2]
+  return dia+'/'+mes+'/'+ano+' '+hora;
+}
 
 var Listar = async () => {
   const resposta = await fetch(BASE_URL, { method: "GET" });
   const resJson = await resposta.json();
+  btn_te.innerHTML = 'Veja todos os '+resJson.length+' eventos'
   resJson.forEach((item,index) => {
+
+    if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
+      item.attractions ='sem atração'
+    }
     if(index<4){
       card.innerHTML += `<article class="cards_index evento card p-5 m-3">
-      <h2 id="evento${index+1}">${item.name} - ${item.scheduled}</h2>
+      <h2 id="evento${index+1}">${item.name} - ${DataConvert(item.scheduled)}</h2>
       <h4>${item.attractions}</h4>
       <p class="p_card_index">${item.description}</p>
-      <button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}')" class="btn btn-primary botao-reservar">
+      <button onclick ="reservar('${item._id}','${item.name}','${DataConvert(item.scheduled)}','${item.attractions}')" class="btn btn-primary botao-reservar">
         reservar ingresso
       </button>
     </article>`;    
