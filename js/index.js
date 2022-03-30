@@ -51,7 +51,7 @@ var Listar = async () => {
       <button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}')" class="btn btn-primary botao-reservar">
         reservar ingresso
       </button>
-    </article>`;
+    </article>`;    
     }
   });
  
