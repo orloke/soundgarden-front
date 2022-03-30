@@ -97,7 +97,7 @@ form.onsubmit = async (e)=>{
   }
 
   alert('Reserva feita com sucesso!')
-  return window.location.href = 'eventos.html'
+  return window.location.reload()
   
 }
 

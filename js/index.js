@@ -152,7 +152,7 @@ form.onsubmit = async (e)=>{
   }
 
   alert('Reserva Cadastrada com sucesso!')
-  // return window.location.href = 'index.html'
+  return window.location.reload()
   
 }
 

@@ -1,7 +1,6 @@
 let id = window.location.href.split("=")[1];
 const BASE_URL_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings/event/";
 const BASE_URL_EVENTO = "https://xp41-soundgarden-api.herokuapp.com/events/";
-console.log(id);
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -15,7 +14,6 @@ let reservasEvento = document.getElementById("reservas-evento");
 async function LotacaoMax() {
     const respostaLotacao = await fetch(`${BASE_URL_EVENTO}${id}`, { method: "GET", redirect: "follow" });
     const maxJson = await respostaLotacao.json();
-    
     nomeEvento.innerHTML = maxJson.name;
     lotacaoEvento.innerHTML = maxJson.number_tickets;
 }
@@ -27,7 +25,6 @@ async function Reservas() {
     headers: myHeaders,
     redirect: "follow" });
     const resJson = await respostaReserva.json();
-    console.log(resJson);
     var contador = 0;
     
     resJson.forEach((item, index) => {
@@ -54,5 +51,5 @@ const excluir = async (a)=>{
     let url_excluir = `https://xp41-soundgarden-api.herokuapp.com/bookings/${a}`
     confirm('Deseja realmente excluir? Essa operação não pode ser desfeita!')
     const resposta = await fetch(url_excluir, {method:'DELETE'});
-    return window.location.href='reservas.html'
+    return window.location.reload()
 }
