@@ -71,7 +71,7 @@ var Listar = async () => {
       </button>`
       :
         `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
-        Ingressos Esgotados
+        Esgotado
         </button>`
       }
 
