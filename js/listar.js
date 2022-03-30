@@ -1,5 +1,6 @@
 let table = document.querySelector('#table')
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
+var estilo = document.getElementsByClassName('load');
 
 var DataConvert = (x) =>{
   let data = x.split('T')[0]
@@ -13,6 +14,7 @@ var DataConvert = (x) =>{
 var Listar = async () =>{
     const resposta = await fetch(BASE_URL, {method: 'GET'})
     const resJson = await resposta.json()
+    estilo[0].style.display = 'none'
     resJson.forEach((item,index) => {
       if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
         item.attractions ='sem atração'

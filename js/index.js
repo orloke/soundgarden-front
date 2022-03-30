@@ -7,6 +7,7 @@ let dataEvento = document.getElementById("data-evento");
 let idEvento = "";
 let atracoesEvento = document.getElementById("atracoes-evento");
 let ingressos = document.getElementById("ingressos");
+var estilo = document.getElementsByClassName('load');
 
 let card = document.querySelector(".pagina_inicial");
 
@@ -54,6 +55,8 @@ var Listar = async () => {
   const resposta = await fetch(BASE_URL, { method: "GET" });
   const resJson = await resposta.json();
   btn_te.innerHTML = 'Veja todos os '+resJson.length+' eventos'
+  estilo[0].style.display = 'none'
+  estilo[1].style.display = 'none'
   resJson.forEach((item,index) => {
 
     if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){

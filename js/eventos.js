@@ -7,6 +7,7 @@ let dataEvento = document.getElementById("data-evento");
 let idEvento = "";
 let atracoesEvento = document.getElementById("atracoes-evento");
 let ingressos = document.getElementById("ingressos");
+var estilo = document.getElementsByClassName('load');
 
 let card = document.querySelector(".pagina_inicial");
 
@@ -42,6 +43,7 @@ cancelarReserva.addEventListener("mousedown", e => {
 var Listar = async () => {
   const resposta = await fetch(BASE_URL, { method: "GET" });
   const resJson = await resposta.json();
+  estilo[0].style.display = 'none'
   resJson.forEach((item,index) => {
     if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
       item.attractions ='sem atração'
