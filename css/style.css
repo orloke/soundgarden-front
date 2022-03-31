@@ -223,6 +223,13 @@ a{
   .cards_index {
     text-align: center;
   }
+
+  .pagina_inicial{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    overflow-x: hidden;
+  }
   /* responsividade pagina de cadastro */
   .form_cadastro_evento,
   .form_editar {
