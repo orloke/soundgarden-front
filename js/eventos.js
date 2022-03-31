@@ -55,7 +55,6 @@ var Listar = async () => {
     const resposta = await fetch(BASE_URL, { method: "GET" });
     const resJson = await resposta.json();
     estilo[0].style.display = 'none'
-    let k =[]
     resJson.forEach((item,index) => {
       if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
         item.attractions ='sem atração'
@@ -74,8 +73,7 @@ var Listar = async () => {
           </button>`
         }
   
-      </article>`;
-      k.push(card)  
+      </article>`; 
       });
 
     let more = document.querySelector('.more')
