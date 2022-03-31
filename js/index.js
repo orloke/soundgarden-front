@@ -95,7 +95,7 @@ Listar();
 
 function imgBanner3(){
   let img3 = document.getElementById("section-banner");
-  img3.style.background = "url('../img/festa.jpg') no-repeat center";
+  img3.style.background = "url('./img/festa.jpg') no-repeat center";
   img3.style.backgroundSize = "cover";
 
   let tituloEvento3 = document.getElementById("evento3").innerHTML;
