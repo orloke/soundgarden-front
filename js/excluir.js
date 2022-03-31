@@ -9,14 +9,21 @@ let data = document.querySelector('#data')
 let lotacao = document.querySelector('#lotacao')
 
 var Recebendo = async() =>{
-    const resposta = await fetch(`${BASE_URL}/${id}`, {method: 'GET'})
-    const resJson = await resposta.json()
-    nome.value = resJson.name    
-    banner.value = resJson.banner    
-    atracoes.value = resJson.attractions    
-    descricao.value = resJson.description    
-    data.value = data.value 
-    lotacao.value = resJson.number_tickets  
+    try{
+        const resposta = await fetch(`${BASE_URL}/${id}`, {method: 'GET'})
+        const resJson = await resposta.json()
+        nome.value = resJson.name    
+        banner.value = resJson.banner    
+        atracoes.value = resJson.attractions    
+        descricao.value = resJson.description    
+        data.value = data.value 
+        lotacao.value = resJson.number_tickets 
+    }
+    catch(e){
+        alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+        window.location.reload()   
+    } 
+ 
 }
 
 Recebendo()
