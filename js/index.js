@@ -16,7 +16,7 @@ let botoesBanner = document.getElementById("botoes-banner");
 let indice = botoesBanner.texto.value;
 let timeout;
 
-let form = document.querySelector('form');
+let form = document.querySelector('.form-modal');
 let nome = document.querySelector('#nome');
 let sexo = document.querySelector('#sexo');
 let email = document.querySelector('#email');

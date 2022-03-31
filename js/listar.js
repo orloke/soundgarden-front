@@ -26,7 +26,7 @@ var Listar = async () =>{
         <td>${DataConvert(item.scheduled)}</td>
         <td>${item.name}</td>
         <td>${item.attractions}</td>
-        <td>
+        <td class = 'td_btn'>
           <a href="reservas.html?id=${item._id}" class="btn btn-dark"
             >ver reservas</a
           >

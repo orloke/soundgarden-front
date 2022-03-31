@@ -124,6 +124,11 @@ h4 {
   margin-top: 2%;
 }
 
+.td_btn{
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 900px) {
   /* responsividade da pagina de eventos  */
   .p-5 {
