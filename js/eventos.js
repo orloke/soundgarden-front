@@ -21,12 +21,21 @@ let qtde = document.querySelector('#quantidade');
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com/events";
 const BASE_FAZER_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings";
 
+var DataConvert = (x) =>{
+  let data = x.split('T')[0]
+  let hora = x.split('T')[1].slice(0,5)
+  let ano = data.split('-')[0].slice(2,4)
+  let mes = data.split('-')[1]
+  let dia =data.split('-')[2]
+  return dia+'/'+mes+'/'+ano+' '+hora;
+}
+
 
 var reservar = async (id, nome, data, atracoes, disponivel) =>{
   modal.style.display = "block";
-  nomeEvento.innerHTML = nome;
-  dataEvento.innerHTML = data;
-  atracoesEvento.innerHTML = atracoes;
+  nomeEvento.innerHTML = 'Evento: '+nome;
+  dataEvento.innerHTML = 'Data: '+DataConvert(data);
+  atracoesEvento.innerHTML = 'Atrações: '+atracoes;
   ingressos.innerHTML = 'Disponivel: '+disponivel
   idEvento = id;
 }
@@ -41,65 +50,76 @@ cancelarReserva.addEventListener("mousedown", e => {
 
 
 var Listar = async () => {
-  const resposta = await fetch(BASE_URL, { method: "GET" });
-  const resJson = await resposta.json();
-  estilo[0].style.display = 'none'
-  resJson.forEach((item,index) => {
-    if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
-      item.attractions ='sem atração'
-    }
-    card.innerHTML += `<article class="cards_index evento card p-5 m-3">
-      <h2 id="evento${index+1}">${item.name} - ${item.scheduled}</h2>
-      <h4>${item.attractions}</h4>
-      <p class="p_card_index">${item.description}</p>
-      ${item.number_tickets!=0?
-        `<button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}','${item.number_tickets}')" class="btn btn-primary botao-reservar">
-        reservar ingresso
-        </button>`
-      :
-        `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
-        Esgotado
-        </button>`
+
+  try{
+    const resposta = await fetch(BASE_URL, { method: "GET" });
+    const resJson = await resposta.json();
+    estilo[0].style.display = 'none'
+    resJson.forEach((item,index) => {
+      if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
+        item.attractions ='sem atração'
       }
+      card.innerHTML += `<article class="cards_index evento card p-5 m-3">
+        <h2 id="evento${index+1}">${item.name} - ${DataConvert(item.scheduled)}</h2>
+        <h4>${item.attractions}</h4>
+        <p class="p_card_index">${item.description}</p>
+        ${item.number_tickets!=0?
+          `<button onclick ="reservar('${item._id}','${item.name}','${item.scheduled}','${item.attractions}','${item.number_tickets}')" class="btn btn-primary botao-reservar">
+          reservar ingresso
+          </button>`
+        :
+          `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
+          Esgotado
+          </button>`
+        }
+  
+      </article>`;
+      });
+  }catch(e){
+    alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+    window.location.reload()
+  }
 
-    </article>`;
-    });
 }
-Listar();
 
+Listar();
 
 form.onsubmit = async (e)=>{
   e.preventDefault();
-  let para_comprar = Number(ingressos.innerHTML.split(': ')[1]);
-  if(Number(qtde.value)>para_comprar){
-    return alert('Quantidade de ingressos maior que o disponível!')
+  try{
+    let para_comprar = Number(ingressos.innerHTML.split(': ')[1]);
+    if(Number(qtde.value)>para_comprar){
+      return alert('Quantidade de ingressos maior que o disponível!')
+    }  
+    let dataraw = {
+      "owner_name": nome.value,
+      "owner_email": email.value,
+      "number_tickets": qtde.value,
+      "event_id": idEvento
+    }
+   
+    
+    const option = {
+        method: 'POST',
+        body: JSON.stringify(dataraw),
+        headers:{
+          "Content-Type": "application/json",
+        },
+        redirect: 'follow'
+    }
+    
+    const resposta = await fetch(BASE_FAZER_RESERVA, option);
+  
+    
+    if(resposta.status != '201'){
+        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    }
+  
+    alert('Reserva feita com sucesso!')
+    return window.location.reload()
+  }catch(e){
+    alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+    window.location.reload()   
   }  
-  let dataraw = {
-    "owner_name": nome.value,
-    "owner_email": email.value,
-    "number_tickets": qtde.value,
-    "event_id": idEvento
-  }
- 
-  
-  const option = {
-      method: 'POST',
-      body: JSON.stringify(dataraw),
-      headers:{
-        "Content-Type": "application/json",
-      },
-      redirect: 'follow'
-  }
-  
-  const resposta = await fetch(BASE_FAZER_RESERVA, option);
-
-  
-  if(resposta.status != '201'){
-      return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
-  }
-
-  alert('Reserva feita com sucesso!')
-  return window.location.reload()
-  
 }
 

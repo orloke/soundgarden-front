@@ -12,6 +12,7 @@ var DataConvert = (x) =>{
 }
 
 var Listar = async () =>{
+  try{
     const resposta = await fetch(BASE_URL, {method: 'GET'})
     const resJson = await resposta.json()
     estilo[0].style.display = 'none'
@@ -33,7 +34,13 @@ var Listar = async () =>{
           <a href="excluir-evento.html?id=${item._id}" class="btn btn-danger">excluir</a>
         </td>
       </tr>`        
-    });    
+    });
+  }
+  catch(e){
+    alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+    window.location.reload()   
+  }  
+    
 }
 
 Listar()

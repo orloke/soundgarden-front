@@ -23,18 +23,23 @@ Recebendo()
 
 form.onsubmit = async (e) =>{
     e.preventDefault()
-    const option = {
-        method: 'DELETE',
-        headers:{
-            "Content-Type": "application/json",
-        },
-    }
-    const resposta = await fetch(`${BASE_URL}/${id}`, option)
-    if(resposta.status != '204'){
-        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
-    }
-
-    alert('Dados excluidos!')
-    return window.location.href = 'admin.html'
+    try{
+        const option = {
+            method: 'DELETE',
+            headers:{
+                "Content-Type": "application/json",
+            },
+        }
+        const resposta = await fetch(`${BASE_URL}/${id}`, option)
+        if(resposta.status != '204'){
+            return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+        }
     
+        alert('Dados excluidos!')
+        return window.location.href = 'admin.html'
+    }
+    catch(e){
+        alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+        window.location.reload()   
+    }      
 }

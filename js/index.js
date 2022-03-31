@@ -52,38 +52,43 @@ var DataConvert = (x) =>{
 }
 
 var Listar = async () => {
-  const resposta = await fetch(BASE_URL, { method: "GET" });
-  const resJson = await resposta.json();
-  btn_te.innerHTML = 'Veja todos os '+resJson.length+' eventos'
-  estilo[0].style.display = 'none'
-  estilo[1].style.display = 'none'
-  resJson.forEach((item,index) => {
-
-    if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
-      item.attractions ='sem atração'
-    }
-    if(index<4){
-      card.innerHTML += `<article class="cards_index evento card p-5 m-3">
-      <h2 id="evento${index+1}">${item.name} - ${DataConvert(item.scheduled)}</h2>
-      <h4>${item.attractions}</h4>
-      <p class="p_card_index">${item.description}</p>
-      <p class="p_card_index">Disponivel: ${item.number_tickets}</p>
-      ${item.number_tickets!=0?
-        `<button onclick ="reservar('${item._id}','${item.name}','${DataConvert(item.scheduled)}','${item.attractions}','${item.number_tickets}')" class="btn btn-primary botao-reservar">
-        reservar ingresso
-      </button>`
-      :
-        `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
-        Esgotado
-        </button>`
+  try{
+    const resposta = await fetch(BASE_URL, { method: "GET" });
+    const resJson = await resposta.json();
+    btn_te.innerHTML = 'Veja todos os '+resJson.length+' eventos'
+    estilo[0].style.display = 'none'
+    estilo[1].style.display = 'none'
+    resJson.forEach((item,index) => {
+  
+      if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
+        item.attractions ='sem atração'
       }
-
-    </article>`;
-    
-    }
-  });
+      if(index<4){
+        card.innerHTML += `<article class="cards_index evento card p-5 m-3">
+        <h2 id="evento${index+1}">${item.name} - ${DataConvert(item.scheduled)}</h2>
+        <h4>${item.attractions}</h4>
+        <p class="p_card_index">${item.description}</p>
+        <p class="p_card_index">Disponivel: ${item.number_tickets}</p>
+        ${item.number_tickets!=0?
+          `<button onclick ="reservar('${item._id}','${item.name}','${DataConvert(item.scheduled)}','${item.attractions}','${item.number_tickets}')" class="btn btn-primary botao-reservar">
+          reservar ingresso
+        </button>`
+        :
+          `<button style = "cursor: auto;" class="btn btn-dark botao-reservar">
+          Esgotado
+          </button>`
+        }
+  
+      </article>`;
+      
+      }
+    });
+  }catch(e){
+    alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+    window.location.reload()  
+  }
  
-imgBanner1();
+  imgBanner1();
 };
 Listar();
 
@@ -125,37 +130,41 @@ function imgBanner1(){
 
 form.onsubmit = async (e)=>{
   e.preventDefault();
-
-  let para_comprar = Number(ingressos.innerHTML.split(': ')[1]);
-  if(Number(qtde.value)>para_comprar){
-    return alert('Quantidade de ingressos maior que o disponível!')
-  }
-  let dataraw = {
-    "owner_name": nome.value,
-    "owner_email": email.value,
-    "number_tickets": qtde.value,
-    "event_id": idEvento
-  }
- 
-
-  const option = {
-      method: 'POST',
-      body: JSON.stringify(dataraw),
-      headers:{
-        "Content-Type": "application/json",
-      },
-      redirect: 'follow'
-  }
+  try{
+    let para_comprar = Number(ingressos.innerHTML.split(': ')[1]);
+    if(Number(qtde.value)>para_comprar){
+      return alert('Quantidade de ingressos maior que o disponível!')
+    }
+    let dataraw = {
+      "owner_name": nome.value,
+      "owner_email": email.value,
+      "number_tickets": qtde.value,
+      "event_id": idEvento
+    }
+   
   
-  const resposta = await fetch(BASE_FAZER_RESERVA, option);
-  console.log(await resposta.json());
+    const option = {
+        method: 'POST',
+        body: JSON.stringify(dataraw),
+        headers:{
+          "Content-Type": "application/json",
+        },
+        redirect: 'follow'
+    }
+    
+    const resposta = await fetch(BASE_FAZER_RESERVA, option);
+    console.log(await resposta.json());
+    
+    if(resposta.status != '201'){
+        return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    }
   
-  if(resposta.status != '201'){
-      return alert('Ocorreu um erro. Verifique se todos os dados estão corretos!')
+    alert('Reserva Cadastrada com sucesso!')
+    return window.location.reload()
+  }catch(e){
+    alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
+    window.location.reload()  
   }
-
-  alert('Reserva Cadastrada com sucesso!')
-  return window.location.reload()
   
 }
 
