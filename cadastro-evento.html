@@ -63,24 +63,24 @@
                     <form class="form_cadastro_evento col-6">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" aria-describedby="nome" placeholder="Escreva o nome do evento">
+                            <input type="text" class="form-control" id="nome" aria-describedby="nome" placeholder="Escreva o nome do evento" required>
                         </div>
                         <div class="mb-3">
                             <label for="atracoes" class="form-label">Atrações</label>
-                            <input type="text" class="form-control" id="atracoes" aria-describedby="atracoes" placeholder="insira o nome dos artistas separados por vírgula">
+                            <input type="text" class="form-control" id="atracoes" aria-describedby="atracoes" placeholder="insira o nome dos artistas separados por vírgula" require>
                         </div>
                         <div class="mb-3">
                             <label for="descricao" class="form-label">Descrição</label>
-                            <textarea name="descricao" id="descricao" class="form-control" rows="5" placeholder="Escreva uma pequena descrição do evento"></textarea>
+                            <textarea name="descricao" id="descricao" class="form-control" rows="5" placeholder="Escreva uma pequena descrição do evento" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="data" class="form-label">Data</label>
                             <input type="datetime" name="data" id="data" class="form-control"
-                                placeholder="00/00/00 00:00">
+                                placeholder="00/00/00 00:00" required>
                         </div>
                         <div class="mb-3">
                             <label for="lotacao" class="form-label">Lotação</label>
-                            <input type="number" class="form-control" id="lotacao" aria-describedby="lotacao" placeholder="Quantidade máxima de ingressos a vender">
+                            <input type="number" class="form-control" id="lotacao" aria-describedby="lotacao" placeholder="Quantidade máxima de ingressos a vender" required>
                         </div>
                         <button type="submit" class="btn btn-primary">enviar</button>
                     </form>
