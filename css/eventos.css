@@ -89,5 +89,10 @@ footer nav ul li  {
         text-align: center;
     }
 
+    .form-modal div {
+        display: flex;
+        flex-direction: column;
+      }
+
 
 }
