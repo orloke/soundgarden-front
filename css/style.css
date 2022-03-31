@@ -124,8 +124,17 @@ h4 {
 
 .td_btn{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
+
+a.btn{
+  max-height: 40px;
+}
+
+a{
+  text-align: center;
+}
+
 
 @media screen and (max-width: 900px) {
   /* responsividade da pagina de eventos  */
@@ -229,6 +238,11 @@ h4 {
   #nascimento,
   #quantidade {
     width: 100%;
+  }
+
+  .td_btn{
+    display: flex;
+    flex-direction: column;
   }
 
   /* responsividade modal */
