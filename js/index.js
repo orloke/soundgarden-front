@@ -12,6 +12,9 @@ var estilo = document.getElementsByClassName('load');
 let card = document.querySelector(".pagina_inicial");
 
 let tituloBanner = document.getElementById("nome-evento-banner");
+let botoesBanner = document.getElementById("botoes-banner");
+let indice = botoesBanner.texto.value;
+let timeout;
 
 let form = document.querySelector('form');
 let nome = document.querySelector('#nome');
@@ -93,29 +96,8 @@ var Listar = async () => {
 Listar();
 
 
-function imgBanner3(){
-  let img3 = document.getElementById("section-banner");
-  img3.style.background = "url('./img/festa.jpg') no-repeat center";
-  img3.style.backgroundSize = "cover";
-
-  let tituloEvento3 = document.getElementById("evento3").innerHTML;
-  tituloBanner.innerHTML = tituloEvento3;
-
-  setTimeout("imgBanner1()", 5000)
-}
-
-function imgBanner2(){
-  let img2 = document.getElementById("section-banner");
-  img2.style.background = "url('./img/samba.jpg') no-repeat center";
-  img2.style.backgroundSize = "cover";
-  
-  let tituloEvento2 = document.getElementById("evento2").innerHTML;
-  tituloBanner.innerHTML = tituloEvento2;
-  
-  setTimeout("imgBanner3()", 5000);
-}
-
 function imgBanner1(){
+  indice=1;
   let img1 = document.getElementById("section-banner");
   img1.style.background = "url('./img/rock-nacional.jpg') no-repeat center";
   img1.style.backgroundSize = "cover";
@@ -123,9 +105,56 @@ function imgBanner1(){
   let tituloEvento1 = document.getElementById("evento1").innerHTML;
   tituloBanner.innerHTML = tituloEvento1;
 
-  setTimeout("imgBanner2()", 5000);
+  timeout = setTimeout("imgBanner2()", 5000);
 }
 
+function imgBanner2(){
+  indice=2;
+  let img2 = document.getElementById("section-banner");
+  img2.style.background = "url('./img/samba.jpg') no-repeat center";
+  img2.style.backgroundSize = "cover";
+  
+  let tituloEvento2 = document.getElementById("evento2").innerHTML;
+  tituloBanner.innerHTML = tituloEvento2;
+  
+  timeout = setTimeout("imgBanner3()", 5000);
+}
+
+function imgBanner3(){
+  indice=3;
+  let img3 = document.getElementById("section-banner");
+  img3.style.background = "url('./img/festa.jpg') no-repeat center";
+  img3.style.backgroundSize = "cover";
+
+  let tituloEvento3 = document.getElementById("evento3").innerHTML;
+  tituloBanner.innerHTML = tituloEvento3;
+
+  timeout = setTimeout("imgBanner1()", 5000)
+}
+
+function mais(){
+  clearTimeout(timeout);
+  console.log(indice);
+
+  if (indice == 1) {
+    return imgBanner2();
+  }
+  if (indice == 2) {
+    return imgBanner3();
+  }
+  imgBanner1();
+}
+  
+function menos(){
+  clearTimeout(timeout);
+  if (indice == 1) {
+    return imgBanner3();
+  }
+  if (indice == 2) {
+    return imgBanner1();
+  }
+  imgBanner2();
+}
 
 
 form.onsubmit = async (e)=>{
