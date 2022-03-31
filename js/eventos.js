@@ -55,11 +55,12 @@ var Listar = async () => {
     const resposta = await fetch(BASE_URL, { method: "GET" });
     const resJson = await resposta.json();
     estilo[0].style.display = 'none'
+    let k =[]
     resJson.forEach((item,index) => {
       if(item.scheduled.length == 0 || item.name.length == 0 || item.attractions[0] == ''){
         item.attractions ='sem atração'
       }
-      card.innerHTML += `<article class="cards_index evento card p-5 m-3">
+      card.innerHTML += `<article style = 'display: none' class="cards_index evento card p-5 m-3">
         <h2 id="evento${index+1}">${item.name} - ${DataConvert(item.scheduled)}</h2>
         <h4>${item.attractions}</h4>
         <p class="p_card_index">${item.description}</p>
@@ -74,7 +75,45 @@ var Listar = async () => {
         }
   
       </article>`;
+      k.push(card)  
       });
+
+    let more = document.querySelector('.more')
+    let cards_index = document.querySelectorAll('.cards_index')
+    for(let i=0;i<10;i++){
+      cards_index[i].style.display='flex'
+    }
+
+    let j = 10
+    more.addEventListener('click',()=>{   
+
+      for(let i=0; i<j;i++){
+
+        cards_index[i+10].style.display='flex'
+      }
+
+      j+=10
+    })
+
+    let btn_pes = document.querySelector('.btn_pesquisar')
+
+    btn_pes.addEventListener('click',()=>{
+
+      let pes_event = document.querySelector('#pesquisar').value.toUpperCase()
+
+      cards_index.forEach(item=>{
+
+        if(item.innerText.toUpperCase().includes(pes_event)){
+
+          item.style.display = 'flex'
+          console.log(item);
+        }
+        else{
+
+          item.style.display = 'none'
+        }
+      })
+    })
   }catch(e){
     alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+e)
     window.location.reload()
@@ -83,6 +122,7 @@ var Listar = async () => {
 }
 
 Listar();
+
 
 form.onsubmit = async (e)=>{
   e.preventDefault();

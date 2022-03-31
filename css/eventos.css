@@ -55,3 +55,39 @@ footer nav ul{
 footer nav ul li  {
     padding: 10px;
 }
+
+.div_more{
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+#pesquisar{
+    padding: 1%;
+    width: 50%;
+}
+
+.btn_pesquisar{
+    margin-top: 0.8%;
+    margin-bottom: 4%;
+}
+
+@media screen and (max-width: 900px) {
+    /* responsividade da pagina de eventos  */
+    .img_down_index {
+      max-width: 330px;
+    }
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    };
+
+    section.full{
+        width: 100%;
+        min-height: 80vh;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+
+}
