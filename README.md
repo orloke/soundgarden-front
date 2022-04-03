@@ -10,3 +10,4 @@ Para deixar a navegação mais intuitiva foram adicionandos os seguintes funcion
 * Bloqueio de reserva em eventos já esgotados
 * Campo de pesquisa
 * Responsividade para mobile, desktop e tablets.
+* Banner controlável
